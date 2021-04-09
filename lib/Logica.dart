@@ -7,6 +7,10 @@ class Logica extends StatefulWidget {
 }
 
 class _LogicaState extends State<Logica> {
+
+  var _mensagem_frase = "Clique no botão abaixo para gerar sua frase!";
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +20,8 @@ class _LogicaState extends State<Logica> {
         title: Text("Frases do dia"),
       ),
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch, // Deixar conteudos alinhads
+        crossAxisAlignment: CrossAxisAlignment.stretch, // Deixar conteudos alinhados
+        //mainAxisAlignment: MainAxisAlignment.spaceEvenly,
 
         children: <Widget>[
           Padding(padding: EdgeInsets.only(top: 20, bottom:20),
@@ -31,29 +36,35 @@ class _LogicaState extends State<Logica> {
           ),
 
           Padding(padding: EdgeInsets.only(top: 20, bottom:20),
-            child: Text(
-              "Frases do dia",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold   // Cor do conteudo
-              ),
-            ),
+            child: Image.asset("images/imagem.jpg"),
 
           ),
           Padding(padding: EdgeInsets.only(top: 20, bottom:20),
             child: Text(
-              "Frases do dia",
+              this._mensagem_frase,
               textAlign: TextAlign.center,
               style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold   // Cor do conteudo
               ),
             ),
+          ),
+          FlatButton(
+            color: Colors.white70,
+            onPressed: (){
+          },
+          child: Text(
+            "Gerar",
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 25,
+              color: Colors.lime,
 
-          ),// Espaçamento
+            ),
+
+          ),
+          ),
         ],
-
       ),
       bottomNavigationBar: BottomAppBar(
         color: Colors.lime,
