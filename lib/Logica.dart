@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+import 'dart:math';
+//import 'package:flutter/rendering.dart';
 
 class Logica extends StatefulWidget {
   @override
@@ -9,6 +10,18 @@ class Logica extends StatefulWidget {
 class _LogicaState extends State<Logica> {
 
   var _mensagem_frase = "Clique no botão abaixo para gerar sua frase!";
+  var _frases = [
+    "O importante não é vencer todos os dias, mas lutar sempre.",
+    "É melhor conquistar a si mesmo do que vencer mil batalhas.",
+    "Quem ousou conquistar e saiu pra lutar, chega mais longe!",
+    "Maior que a tristeza de não haver vencido é a vergonha de não ter lutado!"
+  ];
+  void _gerarFrase() {
+    var _contador = Random().nextInt(_frases.length);
+    setState(() {
+      _mensagem_frase = _frases[_contador];
+    });
+  }
 
 
   @override
@@ -50,9 +63,8 @@ class _LogicaState extends State<Logica> {
             ),
           ),
           FlatButton(
-            color: Colors.white70,
-            onPressed: (){
-          },
+            color: Colors.white60,
+            onPressed: _gerarFrase, // Chamando metodo _gerarFrases
           child: Text(
             "Gerar",
             style: TextStyle(
